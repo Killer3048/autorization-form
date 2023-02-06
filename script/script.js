@@ -40,6 +40,10 @@ document.addEventListener("mousemove", e => {
     cursor.style.left = e.pageX + "px";
 });
 
+documetn.addEventListener("mouseleave", e = {
+    cursor.style.opacity = '1';
+});
+
 document.addEventListener("mouseenter", e => {
     if (e.target.tagName === "BUTTON" || e.target.tagName === "INPUT") {
         cursor.style.backgroundColor = "#00ff00";
