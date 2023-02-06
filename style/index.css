@@ -268,6 +268,34 @@ body {
     text-decoration: underline;
 }
 
+.change-line {
+    position: relative;
+    max-width: 100%;
+    display: flex;
+    bottom: 0;
+    cursor: pointer;
+}
+
+.change-line_type_black {
+    width: 100%;
+    padding: 10px 0;
+    background-color: #000;
+}
+
+.change-line_type_white {
+    width: 100%;
+    padding: 10px 0;
+    background-color: #fff;
+}
+
+.change-line_type_white-value {
+    background-color: #000;
+}
+
+.change-line_type_black-value {
+    background-color: white;
+}
+
 @media only screen and (max-width: 767px) {
     .flying-object {
         width: 60px;
