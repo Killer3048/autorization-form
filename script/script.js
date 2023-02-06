@@ -32,7 +32,6 @@ document.addEventListener("mousemove", (e) => {
 document.addEventListener("mouseenter", (e) => {
     cursor.style.opacity = '1';
     if (e.target.tagName === "BUTTON" || e.target.tagName === "INPUT") {
-        cursor.style.backgroundColor = "red";
         cursor.style.width = "30px";
         cursor.style.height = "30px";
     } else {
