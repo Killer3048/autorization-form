@@ -26,4 +26,37 @@ function changeColorLine() {
     lineBlack.classList.toggle('change-line_type_black-value');
 }
 
-line.addEventListener('click', changeColorLine)
+line.addEventListener('click', changeColorLine);
+
+
+
+const cursor = document.querySelector(".cursor");
+const buttons = document.querySelectorAll("button");
+
+
+document.addEventListener("mousemove", e => {
+    cursor.style.opacity = '1';
+    cursor.style.top = e.pageY + "px";
+    cursor.style.left = e.pageX + "px";
+});
+
+document.addEventListener("mouseenter", e => {
+    if (e.target.tagName === "BUTTON" || e.target.tagName === "INPUT") {
+        cursor.style.backgroundColor = "#00ff00";
+        cursor.style.width = "30px";
+        cursor.style.height = "30px";
+    } else {
+        cursor.style.backgroundColor = getComputedStyle(e.target).backgroundColor;
+        cursor.style.width = "20px";
+        cursor.style.height = "20px";
+    }
+});
+
+buttons.forEach(button => {
+    button.addEventListener("mouseenter", () => {
+        cursor.style.backgroundColor = "red";
+    });
+    button.addEventListener("mouseleave", () => {
+        cursor.style.backgroundColor = "#00ff00";
+    });
+});
