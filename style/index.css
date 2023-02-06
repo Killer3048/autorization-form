@@ -16,7 +16,7 @@ body {
     border-radius: 20px;
     pointer-events: none;
     mix-blend-mode: difference;
-    transition: background-color 0.02s ease-out;
+    transition: background-color 0.001s ease-out;
     z-index: 999;
     opacity: 0;
 }
