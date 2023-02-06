@@ -40,7 +40,7 @@ document.addEventListener("mousemove", e => {
     cursor.style.left = e.pageX + "px";
 });
 
-documetn.addEventListener("mouseleave", e = {
+document.addEventListener("mouseleave", e = {
     cursor.style.opacity = '1';
 });
 
