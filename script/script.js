@@ -14,13 +14,15 @@ flyingObjects.forEach((object) => {
 
     object.addEventListener('animationend', () => {
         object.style.left = `${Math.random() * 100}%`;
-        object.style.top = `100%`;
+        object.style.top = `100%`
     });
 });
 
+
 function changeColorLine() {
     lineWhite.classList.toggle('change-line_type_white-value');
-    lineBlack.classList.toggle('change-line_type_black-value');
+    lineBlack.classList.toggle('change-line_type_black-value')
+
 }
 line.addEventListener('click', changeColorLine);
 
@@ -34,12 +36,13 @@ document.addEventListener("mouseenter", (e) => {
     if (e.target.tagName === "BUTTON" || e.target.tagName === "INPUT") {
         cursor.style.width = "30px";
         cursor.style.height = "30px";
-    } else {
+    } else if (e.target instanceof Element) {
         cursor.style.backgroundColor = getComputedStyle(e.target).backgroundColor;
         cursor.style.width = "20px";
         cursor.style.height = "20px";
     }
 });
+
 
 document.addEventListener("mouseleave", () => {
     cursor.style.opacity = '0';
