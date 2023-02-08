@@ -8,7 +8,9 @@ const buttons = document.querySelectorAll("button");
 flyingObjects.forEach((object) => {
     const randomDelay = Math.random() * 10;
     object.style.animationDelay = `${randomDelay}s`;
+    object.style.WebkitAnimationDelay = `${randomDelay}s`; // added for Safari
     object.style.animationDuration = "10s";
+    object.style.WebkitAnimationDuration = "10s"; // added for Safari
     object.style.left = `${Math.random() * 100}%`;
     object.style.top = `100%`;
 
