@@ -1,3 +1,4 @@
+const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 const flyingObjects = document.querySelectorAll('.flying-object');
 const line = document.querySelector('.change-line');
 const lineWhite = document.querySelector('.change-line_type_white');
@@ -8,9 +9,13 @@ const buttons = document.querySelectorAll("button");
 flyingObjects.forEach((object) => {
     const randomDelay = Math.random() * 10;
     object.style.animationDelay = `${randomDelay}s`;
-    object.style.WebkitAnimationDelay = `${randomDelay}s`; // added for Safari
+    if (!isSafari) {
+        object.style.WebkitAnimationDelay = `${randomDelay}s`;
+    }
     object.style.animationDuration = "10s";
-    object.style.WebkitAnimationDuration = "10s"; // added for Safari
+    if (!isSafari) {
+        object.style.WebkitAnimationDuration = "10s";
+    }
     object.style.left = `${Math.random() * 100}%`;
     object.style.top = `100%`;
 
