@@ -12,13 +12,7 @@ const body = document.querySelector('*')
 flyingObjects.forEach((object) => {
     const randomDelay = Math.random() * 10;
     object.style.animationDelay = `${randomDelay}s`;
-    if (!isSafari) {
-        object.style.WebkitAnimationDelay = `${randomDelay}s`;
-    }
     object.style.animationDuration = "10s";
-    if (!isSafari) {
-        object.style.WebkitAnimationDuration = "10s";
-    }
     object.style.left = `${Math.random() * 100}%`;
     object.style.top = `100%`;
 
