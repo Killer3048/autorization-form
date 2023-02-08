@@ -5,6 +5,10 @@ const lineWhite = document.querySelector('.change-line_type_white');
 const lineBlack = document.querySelector('.change-line_type_black');
 const cursor = document.querySelector(".cursor");
 const buttons = document.querySelectorAll("button");
+const body = document.querySelector('*')
+
+
+
 
 flyingObjects.forEach((object) => {
     const randomDelay = Math.random() * 10;
@@ -33,33 +37,40 @@ function changeColorLine() {
 }
 line.addEventListener('click', changeColorLine);
 
-document.addEventListener("mousemove", (e) => {
-    cursor.style.top = `${e.pageY}px`;
-    cursor.style.left = `${e.pageX}px`;
-});
+if (isSafari) {
+    cursor.style.cursor = 'default';
+    cursor.style.pointerEvents = 'none';
+    body.style.cursor = 'pointer';
+} else {
 
-document.addEventListener("mouseenter", (e) => {
-    cursor.style.opacity = '1';
-    if (e.target.tagName === "BUTTON" || e.target.tagName === "INPUT") {
-        cursor.style.width = "30px";
-        cursor.style.height = "30px";
-    } else if (e.target instanceof Element) {
-        cursor.style.backgroundColor = getComputedStyle(e.target).backgroundColor;
-        cursor.style.width = "20px";
-        cursor.style.height = "20px";
-    }
-});
-
-
-document.addEventListener("mouseleave", () => {
-    cursor.style.opacity = '0';
-});
-
-buttons.forEach((button) => {
-    button.addEventListener("mouseenter", () => {
-        cursor.style.backgroundColor = "red";
+    document.addEventListener("mousemove", (e) => {
+        cursor.style.top = `${e.pageY}px`;
+        cursor.style.left = `${e.pageX}px`;
     });
-    button.addEventListener("mouseleave", () => {
-        cursor.style.backgroundColor = "#00ff00";
+
+    document.addEventListener("mouseenter", (e) => {
+        cursor.style.opacity = '1';
+        if (e.target.tagName === "BUTTON" || e.target.tagName === "INPUT") {
+            cursor.style.width = "30px";
+            cursor.style.height = "30px";
+        } else if (e.target instanceof Element) {
+            cursor.style.backgroundColor = getComputedStyle(e.target).backgroundColor;
+            cursor.style.width = "20px";
+            cursor.style.height = "20px";
+        }
     });
-});
+
+
+    document.addEventListener("mouseleave", () => {
+        cursor.style.opacity = '0';
+    });
+
+    buttons.forEach((button) => {
+        button.addEventListener("mouseenter", () => {
+            cursor.style.backgroundColor = "red";
+        });
+        button.addEventListener("mouseleave", () => {
+            cursor.style.backgroundColor = "#00ff00";
+        });
+    });
+};
