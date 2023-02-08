@@ -199,6 +199,7 @@ body {
 
 .input-container input {
     width: 93%;
+    outline: none;
     margin: 0 auto;
     padding: 20px;
     padding-top: 15px;
@@ -212,7 +213,7 @@ body {
 }
 
 .input-container input:focus {
-    border: none;
+    border: 2px solid white;
 }
 
 .input-container label {
@@ -229,7 +230,7 @@ body {
 
 .input-container input:focus+label,
 .input-container input:valid+label {
-    top: -8px;
+    top: -7.5px;
     background-color: rgba(57, 57, 57, 0.8);
     left: 10px;
     font-size: 12px;
